@@ -14,4 +14,37 @@ body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSyst
 }
 h1 {
     text-align: center;
+    font-family: 'Pacifico', Arial;
+    text-transform: none;
+    text-shadow: 1px 1px 0 #ccc, 2px 2px 0 #ccc, 3px 3px 0 #444, 4px 4px 0 #444, 5px 5px 0 #444, 6px 6px 0 #444, 5px 5px 15px #999;
+    margin: 0%;
+    padding: 20PX;
 }
+header{
+    background-color: #053742;
+    margin: 0%;
+    color: aliceblue;
+    
+    
+}
+.ti{
+    color: rgba(34,34,34,0.5);
+    font-size: x-small;
+}
+.inpu{
+    margin: 0%;
+
+    
+}
+li {
+    color: #053742;
+    font-weight: bold;
+    
+}
+.mes{
+    background-color: #A2DBFA;
+    font-weight:lighter;
+    border-radius: 20px;
+    padding: 5px 30px 5px 30px;
+}
+

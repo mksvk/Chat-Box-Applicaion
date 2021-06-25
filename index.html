@@ -8,39 +8,61 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Mk's chatbot </h1>
+  <header>
+    <h1>Mk's chatbot </h1>
+   
+  </header>
+  
      <div class="name"> 
        <input  id="inpu" placeholder="Enter ur name (mandatory)" autocomplete="off" /> 
     </div>
       <ul id="messages"></ul>
       <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
+        <input  id="input" autocomplete="off" />
+        <button >Send</button>
       </form>
     
         
      
         <script src="/socket.io/socket.io.js"></script>
+        <script src="moment.js"></script>
+        
      <script>
        var socket = io();
-       
-  var messages = document.getElementById('messages'); 
+      
+   var messages = document.getElementById('messages'); 
   var form = document.getElementById('form');
   var input = document.getElementById('input');
   var inpu = document.getElementById('inpu');
-
+  let date_ob = new Date();
+ 
+  
   form.addEventListener('submit',(e)=>{
     e.preventDefault();
     if (input.value && inpu.value) {
-      socket.emit('chat message', {tex: input.value ,name : inpu.value });
+     
+      var time=moment().format('h:mm:ss a')
+
+      socket.emit('chat message', {time:time,tex: input.value ,name : inpu.value });
       input.value = '';
+      input.focus();
+      
     }
+    
   })
 
   socket.on('chat message', function(msg) {
     var item = document.createElement('li');
-
-    item.textContent = msg.name+" : "+ msg.tex;
-   
+    var it = document.createElement('span');
+    var par = document.createElement('span');
+    it.setAttribute("class","ti")
+    par.setAttribute("class","mes")
+    it.textContent= "    "+msg.time
+    par.textContent= msg.tex
+    item.textContent = msg.name+" :   " ;
+    item.appendChild(par);
+    item.appendChild(it);
+    
     messages.appendChild(item);
 
     window.scrollTo(0, document.body.scrollHeight);
