@@ -1,0 +1,23 @@
+div {
+    width: 50%;
+    margin: auto;
+}
+.empty {
+    height: 150px;
+
+}
+header{
+    margin: 0%;
+    color: white;
+    width: 100%;
+    background-color: azure;
+    
+}
+h1 {
+    text-align: center;
+    font-family: 'Pacifico', Arial;
+    text-transform: none;
+    text-shadow: 1px 1px 0 #ccc, 2px 2px 0 #ccc, 3px 3px 0 #444, 4px 4px 0 #444, 5px 5px 0 #444, 6px 6px 0 #444, 5px 5px 15px #999;
+    margin: 0%;
+    padding: 20PX;
+}

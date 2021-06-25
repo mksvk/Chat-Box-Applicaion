@@ -5,25 +5,50 @@ const server = http.createServer(app);
 app.use(express.static(__dirname + '/public'));
 const { Server } = require("socket.io");
 const io = new Server(server);
+var moment = require('moment'); 
+
 
 
 io.on('connection', (socket) => {
+
     console.log('a user connected');
+    socket.on('join chat', (msg) => {
+      socket.join(msg.room);
+      
+      var welcome_mes="hello "+msg.name + " welcome to MK's chatbot"
+      var new_user=msg.name + " joined the chat"
+      socket.emit('chat message',{name:"Admin",tex:welcome_mes,time:moment().format('h:mm:ss a')})
+      socket.broadcast.to(msg.room).emit('chat message',{name:"Admin",tex:new_user,time:moment().format('h:mm:ss a')})
+       
+    })
     
     socket.on('disconnect', () => {
         console.log('user disconnected');
+        socket.broadcast.emit('chat message',{name:"Admin",tex:"a user just disconnected",time:moment().format('h:mm:ss a')})
+       
       });
-
+     
       socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+        
+        io.to(msg.room).emit('chat message', msg);
         console.log('message: ' + msg);
       });
+
   });
 
 
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/first.html');
+  });
+
+
+app.get('/first', (req, res) => {
     res.sendFile(__dirname + '/index.html');
   });
+app.post("/first",(req,res)=>{
+   console.log(req.body) 
+   res.redirect("/first")
+})
 
 let port = process.env.PORT;
 if (port == null || port == "") {

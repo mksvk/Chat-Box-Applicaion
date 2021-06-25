@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/styl.css">
+</head>
+<body>
+    <div class="empty">
+        <header>
+            <h1>Mk's chatbot </h1>
+           
+          </header>
+    </div>
+ <div > 
+      
+            <fieldset ><legend>login information</legend>
+            
+              <form  action="/first" method="POST"">
+              <table  >
+              <br>
+              <tr> <td><label for="">NAME</label>  </td> <td><input type="text" id="name" name="name" placeholder="Enter ur name....."></td> 
+             </tr>
+             <tr> <td><label for="">ROOM</label></td> <td><input id="room" type="text" name="name" placeholder="Enter room name....."></td> 
+             </tr>
+          
+               
+            <tr>  <td></td><td>   <button  onclick="get_data()" value="/another.html">submit</button>
+            </tr>
+                     
+              
+              </table>
+          </form>
+          
+                 </fieldset>
+            </div>
+<script>
+   function get_data () {
+       
+    var nam= document.getElementById('name').value
+    var roo= document.getElementById('room').value
+    localStorage.setItem("name", nam);
+    localStorage.setItem("room", roo);
+}
+</script>
+</body>
+</html>
