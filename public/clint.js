@@ -27,6 +27,9 @@ var socket = io();
 
   socket.on('chat message', function(msg) {
     
+    audioObj = new Audio("sounds/juntos-607.mp3");
+    audioObj.play()
+    
     var time_=moment().format('h:mm:ss a')
     var item = document.createElement('li');
     var main_div = document.createElement('div');
