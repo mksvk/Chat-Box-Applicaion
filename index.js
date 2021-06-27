@@ -15,7 +15,7 @@ io.on('connection', (socket) => {
     socket.on('join chat', (msg) => {
       socket.join(msg.room);
       
-      var welcome_mes="hello "+msg.name + " welcome to MK's chatbot"
+      var welcome_mes="Hello "+msg.name + " welcome to MK's chatbox"
       var new_user=msg.name + " joined the chat"
       socket.emit('chat message',{name:"Admin",tex:welcome_mes})
       socket.broadcast.to(msg.room).emit('chat message',{name:"Admin",tex:new_user})
