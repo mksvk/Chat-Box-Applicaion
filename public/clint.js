@@ -26,16 +26,36 @@ var socket = io();
   })
 
   socket.on('chat message', function(msg) {
+    
+    var time_=moment().format('h:mm:ss a')
     var item = document.createElement('li');
+    var main_div = document.createElement('div');
+    var name_div = document.createElement('div');
+    var mess_div = document.createElement('div');
+    var span_ = document.createElement('span');
+
+
     var it = document.createElement('span');
     var par = document.createElement('span');
     it.setAttribute("class","ti")
     par.setAttribute("class","mes")
-    it.textContent= "    "+msg.time
+    
+    main_div.setAttribute("class","con")
+    name_div.setAttribute("class","user_name")
+    mess_div.setAttribute("class","mess_div")
+    span_.setAttribute("class","z")
+
+    it.textContent= "    "+time_
     par.textContent= msg.tex
-    item.textContent = msg.name+" :   " ;
-    item.appendChild(par);
-    item.appendChild(it);
+    name_div.textContent = msg.name ;
+    span_.textContent=" : "
+    
+    mess_div.appendChild(par)
+    mess_div.appendChild(it)
+    main_div.appendChild(name_div)
+    main_div.appendChild(span_)
+    main_div.appendChild(mess_div)
+    item.appendChild(main_div)
     
     messages.appendChild(item);
 

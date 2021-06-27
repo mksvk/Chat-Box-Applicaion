@@ -40,11 +40,37 @@ li {
     color: #053742;
     font-weight: bold;
     
+    
 }
 .mes{
+    line-height: 2;
     background-color: #A2DBFA;
     font-weight:lighter;
     border-radius: 20px;
     padding: 5px 30px 5px 30px;
 }
 
+table{
+    border: #053742;
+}
+.con{
+    display: flex;
+    align-items: center;
+}
+.user_name{
+    margin-right: 5px;
+}
+div{
+    display: inline;
+}
+.mess_div{
+    display: flex;
+    align-items: center;
+
+}
+
+.z{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}

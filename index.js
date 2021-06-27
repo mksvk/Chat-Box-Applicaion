@@ -17,16 +17,18 @@ io.on('connection', (socket) => {
       
       var welcome_mes="hello "+msg.name + " welcome to MK's chatbot"
       var new_user=msg.name + " joined the chat"
-      socket.emit('chat message',{name:"Admin",tex:welcome_mes,time:moment().format('h:mm:ss a')})
-      socket.broadcast.to(msg.room).emit('chat message',{name:"Admin",tex:new_user,time:moment().format('h:mm:ss a')})
-       
+      socket.emit('chat message',{name:"Admin",tex:welcome_mes})
+      socket.broadcast.to(msg.room).emit('chat message',{name:"Admin",tex:new_user})
+      
+      
+    socket.on('disconnect', () => {
+      var disconnect_mes =msg.name+" just disconnected"
+      console.log('user disconnected');
+      socket.broadcast.emit('chat message',{name:"Admin",tex:disconnect_mes})
+     
+    });
     })
     
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-        socket.broadcast.emit('chat message',{name:"Admin",tex:"a user just disconnected",time:moment().format('h:mm:ss a')})
-       
-      });
      
       socket.on('chat message', (msg) => {
         
