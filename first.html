@@ -4,39 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>M K S V K</title>
     
     <link rel="stylesheet" href="css/styl.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Favicons -->
+   
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
 </head>
-<body>
-    <div class="empty">
-        <header>
-            <h1>Mk's chatbox </h1>
-           
-          </header>
-    </div>
+<body class="text-center">
+    
  <div > 
       
-            <fieldset ><legend>login information</legend>
+          
             
-              <form  action="/first" method="POST"">
-              <table  >
-              <br>
-              <tr> <td><label for="">NAME</label>  </td> <td><input type="text" autocomplete="off" id="name" name="name" placeholder="Enter ur name....."></td> 
-             </tr>
-             <tr> <td><label for="">ROOM</label></td> <td><input id="room" autocomplete="off" type="text" name="name" placeholder="Enter room name....."></td> 
-             </tr>
-          
-               
-            <tr>  <td></td><td>   <button  onclick="get_data()" value="/another.html">submit</button>
-            </tr>
-                     
-              
-              </table>
-          </form>
-          
-                 </fieldset>
+                <main class="form-signin">
+                    <form  action="/first" method="POST">
+                      
+                        
+                        <h1 class="h3 mb-3 fw-normal">MK's chatbox</h1>
+
+                        
+                  
+                      <div class="form-floating">
+                        <input type="text" class="form-control" name="fname" id="name" placeholder="User name...">
+                       
+                      </div>
+                      <div class="form-floating">
+                          <input type="text" class="form-control"  name="lname" id="room" placeholder="Room name...">
+                        
+                      </div>
+                  
+                      <div class="checkbox mb-3">
+                       
+                      </div>
+                      <button class="w-100 btn btn-lg btn-primary" onclick="get_data()"  >join room </button>
+                      <p class="mt-5 mb-3 text-muted">&copy; app krish</p>
+                    </form>
+                  </main>
             </div>
+          
 <script>
    function get_data () {
        
